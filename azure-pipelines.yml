@@ -5,7 +5,7 @@ trigger:
 pool : Vistara
 
 stages:
-  - stage: Plan
+  - stage: terraformplan
     jobs:
       - job: plan
         displayName: plan
