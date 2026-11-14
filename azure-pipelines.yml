@@ -1,0 +1,28 @@
+trigger: 
+- main
+- feature/*
+
+pool : Vistara
+
+stages:
+  - stage: Plan&init
+    jobs:
+      - job: plan
+        displayName: plan
+        steps:
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            backendServiceArm: 'Atulservice-connection'
+            backendAzureRmStorageAccountName: 'ddfff'
+            backendAzureRmContainerName: 'ddd'
+            backendAzureRmKey: 'dev,terraform.tfstate'
+
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            environmentServiceNameAzureRM: 'Atulservice-connection'
