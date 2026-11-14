@@ -5,7 +5,7 @@ trigger:
 pool : Vistara
 
 stages:
-  - stage: Plan&init
+  - stage: Plan
     jobs:
       - job: plan
         displayName: plan
