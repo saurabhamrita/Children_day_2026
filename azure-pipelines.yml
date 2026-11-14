@@ -18,7 +18,7 @@ stages:
             backendServiceArm: 'Atulservice-connection'
             backendAzureRmStorageAccountName: 'ddfff'
             backendAzureRmContainerName: 'ddd'
-            backendAzureRmKey: 'dev,terraform.tfstate'
+            backendAzureRmKey: 'dev.terraform.tfstate'
 
         - task: TerraformTask@5
           inputs:
